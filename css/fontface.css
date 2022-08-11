@@ -1,0 +1,30 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 2918641 */
+  src: url('//at.alicdn.com/t/font_2918641_sxatjh8e27.woff2?t=1639901627525') format('woff2'),
+       url('//at.alicdn.com/t/font_2918641_sxatjh8e27.woff?t=1639901627525') format('woff'),
+       url('//at.alicdn.com/t/font_2918641_sxatjh8e27.ttf?t=1639901627525') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-qq-2:before {
+  content: "\e604";
+}
+
+.icon-qq:before {
+  content: "\e603";
+}
+
+.icon-wechat-2:before {
+  content: "\e602";
+}
+
+.icon-WeChat:before {
+  content: "\e601";
+}
