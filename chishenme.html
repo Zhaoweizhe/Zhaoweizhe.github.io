@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>那天到底吃什么</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    h1 {
+      color: #333;
+      font-size: 36px;
+      margin-bottom: 40px;
+    }
+
+    .random-food {
+      font-size: 24px;
+      color: #ff6600;
+      margin-bottom: 40px;
+    }
+
+    .select-button {
+      background-color: #ff6600;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      font-size: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .select-button:hover {
+      background-color: #cc5500;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>那天到底吃什么</h1>
+    <div class="random-food">点击下面按钮选择食物</div>
+    <button class="select-button" onclick="toggleRotation()">选择食物</button>
+  </div>
+
+  <script>
+    var foodList = [
+      'KFCx崩坏·星穹铁道', '麦当劳', '烤肉', '随便找一家附近的吃','自助餐'
+    ];
+
+    var intervalId;
+    var isRotating = false;
+    var currentIndex = 0;
+
+    function toggleRotation() {
+      var button = document.querySelector('.select-button');
+      if (!isRotating) {
+        button.textContent = '暂停';
+        intervalId = setInterval(rotateFood, 50);
+        isRotating = true;
+      } else {
+        clearInterval(intervalId);
+        button.textContent = '选择食物';
+        isRotating = false;
+        displaySelectedFood();
+      }
+    }
+
+    function rotateFood() {
+      var randomIndex = currentIndex;
+      while (randomIndex === currentIndex) {
+        randomIndex = Math.floor(Math.random() * foodList.length);
+      }
+      currentIndex = randomIndex;
+      document.querySelector('.random-food').textContent = foodList[currentIndex];
+    }
+
+    function displaySelectedFood() {
+      document.querySelector('.random-food').textContent = '选择的食物：' + foodList[currentIndex];
+    }
+  </script>
+</body>
+</html>
